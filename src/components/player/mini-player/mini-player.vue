@@ -812,6 +812,7 @@ export default {
                 width: 41px;
                 float: left;
                 display: block;
+                user-select: none;
 
                 .show_lyric_btn {
                     position: absolute;
