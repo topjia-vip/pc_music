@@ -1,0 +1,30 @@
+{
+  "id": "1233271",
+  "name": "test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3900173",
+      "name": "奖杯",
+      "font_class": "no-1",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "12242644",
+      "name": "奖杯",
+      "font_class": "no-2",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "12242729",
+      "name": "奖杯",
+      "font_class": "no-3",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    }
+  ]
+}

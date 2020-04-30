@@ -1,0 +1,23 @@
+{
+  "id": "1233271",
+  "name": "test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "868799",
+      "name": "箭头",
+      "font_class": "next",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "12216032",
+      "name": "箭头",
+      "font_class": "prev",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    }
+  ]
+}
