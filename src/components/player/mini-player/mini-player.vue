@@ -80,10 +80,8 @@
                      title="音量"
                 ></div>
                 <div class="m_vol" v-show="isShowVoice">
-                    <div class="voice_progress_bar" ref="voice_progress_bar"
-                         @click="progressClick($event,'voice')"
-                    >
-                        <div class="voice_inner_bar">
+                    <div class="voice_progress_bar" ref="voice_progress_bar">
+                        <div class="voice_inner_bar" @click="progressClick($event,'voice')">
                             <div class="voice_progress" ref="voice_progress"></div>
                             <div class="voice_progress-btn-wrapper" ref="voiceProgressBtn"
                                  @mousedown.prevent="progressTouchStart($event,'voice')"
@@ -719,18 +717,19 @@ export default {
                     position: absolute;
                     background: #15140d;
                     left: -9px;
-                    top: -120px;
+                    top: -150px;
                     clear: both;
                     width: 32px;
-                    height: 120px;
-                    opacity: .6;
+                    height: 150px;
+                    opacity: .99;
+                    z-index: 5;
 
                     .voice_progress_bar {
                         position: absolute;
                         height: 100px;
                         width: 100%;
                         float: left;
-                        top: 10px;
+                        top: 25px;
 
                         .voice_inner_bar {
                             position: relative;
@@ -740,6 +739,7 @@ export default {
                             float: left;
                             background: #000000;
                             border-radius: 20px;
+                            cursor: pointer;
 
                             .voice_progress {
                                 position: absolute;
