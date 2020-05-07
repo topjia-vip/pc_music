@@ -33,7 +33,6 @@ export default {
     }
   },
   mounted () {
-    // document.body.style.overflow = 'hidden'
     window.addEventListener('resize', () => {
       this.$refs.outer.style.height = `${window.innerHeight}px`
     })
@@ -68,6 +67,7 @@ export default {
 
 <style scoped lang="less">
     .outer {
+        position: fixed;
         width: 100%;
         overflow: hidden;
 
@@ -77,7 +77,6 @@ export default {
         }
 
         .layout {
-            min-height: 700px;
             overflow: auto;
             height: 100%;
         }
