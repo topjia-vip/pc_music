@@ -342,12 +342,11 @@ export default {
       if (!this.isMove) {
         this.currentTime = e.target.currentTime
         // 校准歌词播放进度与歌曲播放进度
-        // if (this.checkSongPlayAndLyric) {
-        //   console.info('校准歌词播放进度与歌曲播放进度')
-        //   setTimeout(() => {
-        //     this.currentLyric.seek(this.currentTime * 1000)
-        //   }, 20)
-        // }
+        if (this.checkSongPlayAndLyric) {
+          setTimeout(() => {
+            this.currentLyric.seek(this.currentTime * 1000)
+          }, 10)
+        }
         this.checkSongPlayAndLyric = false
         if (this.currentSongLoad !== 100) {
           const audio = this.$refs.audio
