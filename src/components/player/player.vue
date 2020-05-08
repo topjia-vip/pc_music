@@ -169,9 +169,8 @@ export default {
     },
     canPlaySong () {
       if (this.lyricReady) {
-        console.log('歌曲缓存成功开始播放歌曲')
-        this.playSong()
         this.lyricReady = false
+        this.playSong()
       } else {
         this.playReady = true
       }
@@ -190,9 +189,8 @@ export default {
           this.currentLyricTrans = new Lyric(data.trans)
         }
         if (this.playReady) {
-          console.log('歌词获取成功开始播放歌曲')
-          this.playSong()
           this.playReady = false
+          this.playSong()
         } else {
           this.lyricReady = true
         }
@@ -344,12 +342,12 @@ export default {
       if (!this.isMove) {
         this.currentTime = e.target.currentTime
         // 校准歌词播放进度与歌曲播放进度
-        if (this.checkSongPlayAndLyric) {
-          console.info('校准歌词播放进度与歌曲播放进度')
-          setTimeout(() => {
-            this.currentLyric.seek(this.currentTime * 1000)
-          }, 20)
-        }
+        // if (this.checkSongPlayAndLyric) {
+        //   console.info('校准歌词播放进度与歌曲播放进度')
+        //   setTimeout(() => {
+        //     this.currentLyric.seek(this.currentTime * 1000)
+        //   }, 20)
+        // }
         this.checkSongPlayAndLyric = false
         if (this.currentSongLoad !== 100) {
           const audio = this.$refs.audio
