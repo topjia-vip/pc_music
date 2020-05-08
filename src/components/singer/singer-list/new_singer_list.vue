@@ -1,7 +1,7 @@
 <template>
     <div class="singer-list">
         <!--热门歌手显示-->
-        <div class="hot-singer-content" v-show="showHot">
+        <div class="hot-singer-content" v-if="showHot">
             <div class="hot-singer-title">
                 <h2>分类热门歌手</h2>
             </div>
@@ -24,7 +24,7 @@
             </ul>
         </div>
         <!--显示非热门歌手-->
-        <ul class="singer-list-ul" v-show="showSingerList">
+        <ul class="singer-list-ul" v-if="showSingerList">
             <li class="singer-list-item" v-for="(singer,index) in singerList"
                 :key="index"
                 @click="selectSinger(singer)"
@@ -33,11 +33,11 @@
             </li>
         </ul>
         <!--分页器-->
-        <div class="pageHelper">
+        <div class="pageHelper" v-if="showSingerList">
             <Page :current="curPage" :total="total" :page-size="80" @on-change="changePage"/>
         </div>
         <!--没有歌手显示-->
-        <div class="not-singer" v-show="!showHot && !showSingerList">
+        <div class="not-singer" v-if="!showHot && !showSingerList">
             <h2>Sorry,该分类下暂无歌手</h2>
         </div>
     </div>
