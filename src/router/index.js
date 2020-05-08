@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import recommend from '../components/recommend/recommend'
-import singer from '../components/singer/singer'
+import newSingerPage from '../components/singer/new_singer_page'
 import rank from '../components/rank/rank'
 import dissts from '../components/dissts/dissts'
 import TopList from '../components/rank/toplist/toplist'
@@ -39,10 +39,15 @@ export default new VueRouter({
         }
       ]
     },
+    // {
+    //   path: '/singer',
+    //   name: 'singer',
+    //   component: singer
+    // },
     {
       path: '/singer',
       name: 'singer',
-      component: singer
+      component: newSingerPage
     },
     {
       path: '/singer_detail/:singerId',

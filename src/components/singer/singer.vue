@@ -1,17 +1,17 @@
 <template>
-    <Content class="singer" v-if="singerList">
+    <Content class="singer" v-if="singerListData">
         <div class="singer-title" v-show="isShow">
             <h1>
                 <span>这里有你喜欢的歌手</span>
             </h1>
         </div>
         <div class="singer-content" v-show="isShow">
-            <tags :tags="singerList.tags" :area="area" :index="index" :genre="genre" :sex="sex"
+            <tags :tags="singerListData.tags" :area="area" :index="index" :genre="genre" :sex="sex"
                   @selectTag="selectTag"/>
-            <singer-list :singer-list="singerList.singerList"
+            <singer-list :singer-list="singerListData.singerList"
                          :hot-singer-list="hotSinger"
                          :index="index"
-                         :total="singerList.total"
+                         :total="singerListData.total"
                          @changePage="changePage"
             />
         </div>
@@ -41,7 +41,7 @@ export default {
   },
   data () {
     return {
-      singerList: [],
+      singerListData: [],
       hotSinger: [],
       area: '-100',
       index: '-100',
@@ -60,10 +60,10 @@ export default {
       ViewUI.LoadingBar.start()
       getSingerList(this.area, this.genre, this.index, this.sex, this.sin, this.cur_page).then(res => {
           if (res.code === ERR_OK) {
-            this.singerList = res.data
+            this.singerListData = res.data
             if (this.index === '-100') {
-              this.hotSinger = this.singerList.singerList.slice(0, 10)
-              this.singerList.singerList = this.singerList.singerList.slice(10)
+              this.hotSinger = this.singerListData.singerList.slice(0, 10)
+              this.singerListData.singerList = this.singerListData.singerList.slice(10)
             }
           }
           this.isShow = true
@@ -86,10 +86,10 @@ export default {
       this.isShow = false
       getSingerList(this.area, this.genre, this.index, this.sex, this.sin, this.cur_page).then(res => {
         if (res.code === ERR_OK) {
-          this.singerList = res.data
+          this.singerListData = res.data
           if (this.index === '-100') {
-            this.hotSinger = this.singerList.singerList.slice(0, 10)
-            this.singerList.singerList = this.singerList.singerList.slice(10)
+            this.hotSinger = this.singerListData.singerList.slice(0, 10)
+            this.singerListData.singerList = this.singerListData.singerList.slice(10)
           }
         }
         ViewUI.LoadingBar.finish()
@@ -102,10 +102,10 @@ export default {
       this.isShow = false
       getSingerList(this.area, this.genre, this.index, this.sex, PAGE_SIZE * (curPage - 1), curPage).then(res => {
         if (res.code === ERR_OK) {
-          this.singerList = res.data
+          this.singerListData = res.data
           if (this.index === '-100' && curPage === 1) {
-            this.hotSinger = this.singerList.singerList.slice(0, 10)
-            this.singerList.singerList = this.singerList.singerList.slice(10)
+            this.hotSinger = this.singerListData.singerList.slice(0, 10)
+            this.singerListData.singerList = this.singerListData.singerList.slice(10)
           }
         }
         ViewUI.LoadingBar.finish()
